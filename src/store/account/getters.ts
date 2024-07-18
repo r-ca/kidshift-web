@@ -3,6 +3,9 @@ import { RootStateInterface } from '../index';
 import { AccountStateInterface } from './state';
 
 const getters: GetterTree<AccountStateInterface, RootStateInterface> = {
+  getId(state: AccountStateInterface): string {
+    return state.id;
+  },
   getToken(state: AccountStateInterface): string {
     return state.token;
   },
