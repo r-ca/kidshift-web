@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    <q-card class="q-pa-md" style="max-width: 400px; width: 100%;">
+  <q-page class="flex flex-center q-my-md">
+    <q-card class="q-pa-md" style="max-width: 720px; width: 100%;">
       <q-card-section>
         <div class="text-h6">タスク一覧</div>
       </q-card-section>
@@ -16,7 +16,4 @@ import TaskList from 'components/TaskListComponent.vue';
 </script>
 
 <style scoped>
-.q-page {
-  background: #f5f5f5;
-}
 </style>
