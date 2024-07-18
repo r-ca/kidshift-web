@@ -1,8 +1,8 @@
 import { ActionTree } from 'vuex';
-import { StateInterface } from '../index';
+import { RootStateInterface } from '../index';
 import { AccountStateInterface } from './state';
 
-const actions: ActionTree<AccountStateInterface, StateInterface> = {
+const actions: ActionTree<AccountStateInterface, RootStateInterface> = {
   logout(context) {
     context.commit('setToken', '');
     context.commit('setUsername', '');

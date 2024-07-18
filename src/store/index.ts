@@ -1,63 +1,59 @@
-import { store } from 'quasar/wrappers'
-import { InjectionKey } from 'vue'
-import { Router } from 'vue-router'
+import { store } from 'quasar/wrappers';
 import {
   createStore,
-  Store as VuexStore,
-  useStore as vuexUseStore,
-} from 'vuex'
+  Module,
+  createComposable,
+  Getters,
+  Mutations,
+} from 'vuex-smart-module';
+import { AccountStateInterface } from './account/state';
 
-// import example from './module-example'
-// import { ExampleStateInterface } from './module-example/state';
-
-/*
- * If not building with SSR mode, you can
- * directly export the Store instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Store instance.
- */
-
-export interface StateInterface {
-  // Define your own store structure, using submodules if needed
-  // example: ExampleStateInterface;
-  // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
-  example: unknown
+class RootState {
+  count = 1;
 }
 
-// provide typings for `this.$store`
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    $store: VuexStore<StateInterface>
+class RootGetters extends Getters<RootState> {
+  get count () {
+    return this.state.count;
+  }
+
+  multiply (multiplier: number) {
+    return this.state.count * multiplier;
   }
 }
 
-// provide typings for `useStore` helper
-export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol('vuex-key')
-
-// Provide typings for `this.$router` inside Vuex stores
-declare module "vuex" {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  export interface Store<S> {
-    readonly $router: Router;
+class RootMutations extends Mutations<RootState> {
+  add (payload: number) {
+    this.state.count += payload;
   }
 }
+
+// This is the config of the root module
+// You can define a root state/getters/mutations/actions here
+// Or do everything in separate modules
+const rootConfig = {
+  state: RootState,
+  getters: RootGetters,
+  mutations: RootMutations,
+  modules: {
+    //
+  },
+};
+
+export const root = new Module(rootConfig);
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore<StateInterface>({
-    modules: {
-      // example
-    },
+  const rootStore = createStore(root, {
+    strict: !!process.env.DEBUGGING,
+    // plugins: []
+    // and other options, normally passed to Vuex `createStore`
+  });
 
-    // enable strict mode (adds overhead!)
-    // for dev mode and --debug builds only
-    strict: !!process.env.DEBUGGING
-  })
+  return rootStore;
+});
 
-  return Store;
-})
+export const useStore = createComposable(root);
 
-export function useStore() {
-  return vuexUseStore(storeKey)
+export interface RootStateInterface {
+  account: AccountStateInterface;
 }

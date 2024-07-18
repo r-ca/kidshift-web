@@ -1,8 +1,7 @@
 import { GetterTree } from 'vuex';
-import { StateInterface } from '../index';
 import { AccountStateInterface } from './state';
 
-const getters: GetterTree<AccountStateInterface, StateInterface> = {
+const getters: GetterTree<AccountStateInterface, any> = {
   getToken(state: AccountStateInterface): string {
     return state.token;
   },
