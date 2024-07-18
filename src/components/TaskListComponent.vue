@@ -12,7 +12,7 @@
   </q-list>
   <q-dialog v-model="confirmDialog" backdrop-filter="blur(4px)" persistent>
     <q-card style="max-width: 512px; width: 100%;" class="q-py-sm q-px-sm">
-      <q-card-section class="text-h6">タスクを完了にしますか？</q-card-section>
+      <q-card-section class="text-h6">タスクを完了しますか？</q-card-section>
       <q-card-section>
         <q-item>
           <q-item-section>
