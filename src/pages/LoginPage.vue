@@ -16,7 +16,7 @@
   </q-page>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import useStore from 'src/store';
 import { loginWithCode } from 'src/api/apiService';
@@ -29,13 +29,9 @@ const store = useStore();
 
 const login = () => {
   if (canLogin.value) {
-    loginWithCode(loginCode.value).then((response) => {
-      if (response.error) {
-        alert('ログインエラー: ' + response.error);
-        return;
-      }
-      store.commit('setToken', response.token);
-      store.commit('setLoggedIn', true);
+    loginWithCode(loginCode.value).then((accessToken) => {
+      store.commit('account/setToken', accessToken);
+      store.commit('account/setLoggedIn', true);
     }).catch((error) => {
       alert('ログインエラー: ' + error);
     });

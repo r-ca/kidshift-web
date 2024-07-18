@@ -7,7 +7,7 @@ export const sendPing = async (): Promise<string> => {
 };
 
 export const loginWithCode = async (code: string): Promise<string> => {
-  const response = await api.post('/auth/login', { code });
+  const response = await api.post('/child/auth/login', { loginCode: code })
   return response.data.accessToken;
 }
 
