@@ -3,7 +3,7 @@
     <q-item v-for="task in tasks" :key="task.id" class="q-py-sm q-px-md">
       <q-item-section>
         <q-item-label>{{ task.name }}</q-item-label>
-        <q-item-label caption>{{ task.price }}円</q-item-label>
+        <q-item-label caption>{{ task.reward }}円</q-item-label>
       </q-item-section>
       <q-item-section side>
         <q-btn @click="completeTask(task)" label="完了" color="primary" rounded/>
@@ -13,10 +13,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { getTaskList } from 'src/api/apiService';
 
 // get and set tasks
-const tasks = await getTaskList();
+let tasks = ref([]);
+
+getTaskList().then((res) => {
+  console.log(res);
+  tasks.value = res.list;
+});
 
 const completeTask = (task) => {
   // 完了ボタンが押されたときの処理をここに記述します
