@@ -35,6 +35,7 @@ const login = () => {
         return;
       }
       store.commit('setToken', response.token);
+      store.commit('setLoggedIn', true);
     }).catch((error) => {
       alert('ログインエラー: ' + error);
     });
