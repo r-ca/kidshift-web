@@ -1,4 +1,5 @@
 export interface AccountStateInterface {
+  id: string;
   username: string;
   token: string;
   isLoggedIn: boolean;
@@ -6,6 +7,7 @@ export interface AccountStateInterface {
 
 function state(): AccountStateInterface {
   return {
+    id: '',
     username: '',
     token: '',
     isLoggedIn: false,
