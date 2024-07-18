@@ -33,6 +33,7 @@
 import { ref } from 'vue';
 import { getTaskList, completeTask } from 'src/api/apiService';
 import useStore from 'src/store';
+import { useQuasar } from 'quasar';
 
 // get and set tasks
 let tasks = ref([]);
@@ -40,6 +41,7 @@ let selectedTask = ref(null);
 let confirmDialog = ref(false);
 
 const store = useStore();
+const $q = useQuasar();
 
 getTaskList().then((res) => {
   console.log(res);
@@ -57,7 +59,14 @@ const selectTask = (task) => {
 const registTaskComplete = (task) => {
   confirmDialog.value = false;
   completeTask(task.id, store.state.account.id).then(() => {
-    // バナー通知
+    $q.notify({
+      message: 'タスクを完了しました',
+      color: 'positive',
+      position: 'bottom-left',
+    });
+    getTaskList().then((res) => {
+      tasks.value = res.list;
+    });
   });
 };
 
