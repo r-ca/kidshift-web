@@ -20,6 +20,14 @@ export const getChildDetails = async (childId: string): Promise<ChildDetailsResp
   return response.data;
 }
 
+export const getMeDetails = async (): Promise<ChildDetailsResponse> => {
+  const response = await api.get(`/child/me`);
+  if (response.status !== 200) {
+    throw new Error('ユーザー情報の取得に失敗しました');
+  }
+  return response.data;
+}
+
 export const getTaskList = async (): Promise<TaskListResponse> => {
   const response = await api.get(`/task`);
   if (response.status !== 200) {
