@@ -13,7 +13,7 @@ export default function (/* { ssrContext } */) {
     modules: {
       account: accountStateModule
     },
-    plugins: [createPersistedState({storage: window.sessionStorage})],
+    plugins: [createPersistedState({storage: window.localStorage})],
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
