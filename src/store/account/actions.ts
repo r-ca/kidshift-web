@@ -1,10 +1,12 @@
 import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
-import { ExampleStateInterface } from './state';
+import { AccountStateInterface } from './state';
 
-const actions: ActionTree<ExampleStateInterface, StateInterface> = {
-  someAction (/* context */) {
-    // your code
+const actions: ActionTree<AccountStateInterface, StateInterface> = {
+  logout(context) {
+    context.commit('setToken', '');
+    context.commit('setUsername', '');
+    context.commit('setLoggedIn', false);
   }
 };
 
