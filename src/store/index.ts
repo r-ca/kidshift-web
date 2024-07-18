@@ -8,9 +8,9 @@ export interface RootStateInterface {
 }
 
 export default function (/* { ssrContext } */) {
-  const Store = createStore({
+  const store = createStore({
     modules: {
-      accountStateModule
+      account: accountStateModule
     },
 
     // enable strict mode (adds overhead!)
@@ -18,5 +18,5 @@ export default function (/* { ssrContext } */) {
     strict: process.env.DEBUGGING === 'true'
   })
 
-  return Store
+  return store
 }
