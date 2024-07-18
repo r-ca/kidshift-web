@@ -16,15 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { StoreInstance } from '@quasar/app-vite';
 import { ref } from 'vue';
-import { storeKey, useStore } from 'vuex';
-
-// AccountStateStoreのisLoggedInがfalseなら/loginにリダイレクト
-
-const store = useStore<StoreInstance>(storeKey);
-
-console.log(store.getters['AccountStateStore/isLoggedIn']);
+import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 
 defineOptions({
   name: 'MainLayout'

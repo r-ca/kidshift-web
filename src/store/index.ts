@@ -17,7 +17,7 @@ declare module '@vue/runtime-core' {
 }
 
 // Provide typings for `useStore` helper
-export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol('account-state');
+export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol('vuex-key');
 
 // Provide typings for `this.$router` inside Vuex stores
 declare module 'vuex' {
