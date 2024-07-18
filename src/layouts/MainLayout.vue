@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title>
-          KidShift for Web
+          KidShift  <span class="text-subtitle2" style="color: #CCCCCC" >{{ store.state.account.username }}</span> <!-- TODO: ハードコードやめる -->
         </q-toolbar-title>
         <q-btn flat round dense icon="refresh" @click="doRefresh()" />
         <q-btn flat round dense icon="logout" @click="doLogout()" />
