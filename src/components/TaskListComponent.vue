@@ -1,6 +1,6 @@
 <template>
   <q-list bordered>
-    <q-item v-for="task in tasks" :key="task.id" class="q-py-sm q-px-md">
+    <q-item v-for="task in tasks" :key="task.id" class="q-py-md q-px-md">
       <q-item-section>
         <q-item-label>{{ task.name }}</q-item-label>
         <q-item-label caption>{{ task.reward }}円</q-item-label>
