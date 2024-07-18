@@ -1,10 +1,14 @@
-export interface ExampleStateInterface {
-  prop: boolean;
+export interface AccountStateInterface {
+  username: string;
+  token: string;
+  isLoggedIn: boolean;
 }
 
-function state(): ExampleStateInterface {
+function state(): AccountStateInterface {
   return {
-    prop: false,
+    username: '',
+    token: '',
+    isLoggedIn: false,
   };
 }
 
