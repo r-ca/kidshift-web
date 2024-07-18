@@ -29,6 +29,13 @@ if (store.state.account.isLoggedIn) {
   alert('User is not logged in');
 }
 
+import { sendPing } from 'src/api/apiService';
+
+sendPing().then((response) => {
+  // debug, show alert
+  alert('Ping response: ' + response);
+});
+
 defineOptions({
   name: 'MainLayout'
 });
