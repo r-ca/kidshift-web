@@ -13,14 +13,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { getTaskList } from 'src/api/apiService';
 
-const tasks = ref([
-  { id: 1, name: '風呂掃除', price: 100 },
-  { id: 2, name: '玄関掃除', price: 100 },
-  { id: 3, name: 'ゴミ出し', price: 100 },
-  // 他のタスクも追加できます
-]);
+// get and set tasks
+const tasks = await getTaskList();
 
 const completeTask = (task) => {
   // 完了ボタンが押されたときの処理をここに記述します
