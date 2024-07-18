@@ -7,15 +7,8 @@
 
       <q-card-section>
         <q-form @submit.prevent="login">
-          <q-input
-            v-model="loginCode"
-            type="text"
-            label="ログインコード"
-            mask="####-####"
-            fill-mask
-            :rules="[val => val.length === 9 || 'ログインコードは8桁の数字です']"
-            outlined
-          />
+          <q-input v-model="loginCode" type="text" label="ログインコード" mask="########" fill-mask
+            :rules="[val => val.length === 8 || 'ログインコードは8桁の数字です']" outlined />
           <q-btn type="submit" label="ログイン" color="primary" class="q-mt-md" :disable="!canLogin" />
         </q-form>
       </q-card-section>
@@ -25,14 +18,26 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import useStore from 'src/store';
+import { loginWithCode } from 'src/api/apiService';
 
 const loginCode = ref('');
 
-const canLogin = computed(() => loginCode.value.length === 9);
+const canLogin = computed(() => loginCode.value.length === 8);
+
+const store = useStore();
 
 const login = () => {
   if (canLogin.value) {
-    alert('Login successful!');
+    loginWithCode(loginCode.value).then((response) => {
+      if (response.error) {
+        alert('ログインエラー: ' + response.error);
+        return;
+      }
+      store.commit('setToken', response.token);
+    }).catch((error) => {
+      alert('ログインエラー: ' + error);
+    });
   }
 };
 </script>
