@@ -5,8 +5,8 @@
         <q-toolbar-title>
           KidShift for Web
         </q-toolbar-title>
-        <q-btn flat round dense icon="refresh" />
-        <q-btn flat round dense icon="logout" />
+        <q-btn flat round dense icon="refresh" @click="doRefresh()"/>
+        <q-btn flat round dense icon="logout" @click="doLogout()"/>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -26,6 +26,16 @@ if (!store.state.account.isLoggedIn) {
   // to /login
   router.push('/login');
 }
+
+const doRefresh = () => {
+  console.log('doRefresh');
+};
+
+const doLogout = () => {
+  console.log('doLogout');
+  store.dispatch('account/logout');
+  router.push('/login');
+};
 
 defineOptions({
   name: 'MainLayout'
