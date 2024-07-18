@@ -1,10 +1,16 @@
 import { GetterTree } from 'vuex';
 import { StateInterface } from '../index';
-import { ExampleStateInterface } from './state';
+import { AccountStateInterface } from './state';
 
-const getters: GetterTree<ExampleStateInterface, StateInterface> = {
-  someGetter (/* context */) {
-    // your code
+const getters: GetterTree<AccountStateInterface, StateInterface> = {
+  getToken(state: AccountStateInterface): string {
+    return state.token;
+  },
+  getUsername(state: AccountStateInterface): string {
+    return state.username;
+  },
+  isLoggedIn(state: AccountStateInterface): boolean {
+    return state.isLoggedIn;
   }
 };
 
