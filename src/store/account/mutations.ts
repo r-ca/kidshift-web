@@ -2,6 +2,9 @@ import { MutationTree } from 'vuex';
 import { AccountStateInterface } from './state';
 
 const mutation: MutationTree<AccountStateInterface> = {
+  setId(state: AccountStateInterface, id: string) {
+    state.id = id;
+  },
   setToken(state: AccountStateInterface, token: string) {
     state.token = token;
   },
