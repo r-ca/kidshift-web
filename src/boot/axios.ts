@@ -19,14 +19,17 @@ declare module '@vue/runtime-core' {
 
 const store = useStore();
 
-const api = axios.create({ baseURL: API_BASE_URL })
+const api = axios.create({ baseURL: API_BASE_URL, headers: { 'Content-Type': 'application/json' } });
 
 // トークン付与
 api.interceptors.request.use((config) => {
   const token = store.state.account.token;
+  console.log(token);
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    console.log('token exists');
+    config.headers['Authorization'] = `Bearer ${token}`;
   }
+  console.log(config);
   return config;
 });
 
