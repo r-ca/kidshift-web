@@ -1,9 +1,8 @@
 import { store } from 'quasar/wrappers';
 import { InjectionKey } from 'vue';
-import { Router } from 'vue-router';
-import { createStore, Store as VuexStore } from 'vuex';
-import accountState from './accountState';
-import { UserState } from './accountState/types';
+import { createStore, Store as VuexStore, useStore as vuexUseStore } from 'vuex';
+import user from './accountState';
+import { UserState } from './user/types';
 
 export interface StateInterface {
   user: UserState;
@@ -29,8 +28,11 @@ declare module 'vuex' {
 export default store(function() {
   const Store = createStore<StateInterface>({
     modules: {
-      accountState,
+      user,
     },
+    plugins: [createPersistedState({
+      paths: ['user.token', 'user.username', 'user.taskList'],
+    })],
   });
 
   return Store;
