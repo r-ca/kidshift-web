@@ -27,3 +27,12 @@ export const getTaskList = async (): Promise<TaskListResponse> => {
   }
   return response.data;
 }
+
+export const completeTask = async (taskId: string, childId: string): Promise<void> => {
+  const params = new URLSearchParams();
+  params.append('childId', childId);
+  const response = await api.post(`/task/${taskId}/complete`, params);
+  if (response.status !== 200) {
+    throw new Error('タスクの完了に失敗しました');
+  }
+}

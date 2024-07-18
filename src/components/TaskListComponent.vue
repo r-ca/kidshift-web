@@ -6,7 +6,7 @@
         <q-item-label caption>{{ task.reward }}円</q-item-label>
       </q-item-section>
       <q-item-section side>
-        <q-btn @click="completeTask(task)" label="完了" color="primary" rounded/>
+        <q-btn @click="selectTask(task)" label="完了" color="primary" rounded/>
       </q-item-section>
     </q-item>
   </q-list>
@@ -23,7 +23,7 @@
       </q-card-section>
       <q-card-actions align="right">
         <q-btn label="キャンセル" color="primary" @click="confirmDialog = false" />
-        <q-btn label="完了" color="primary" @click="confirmDialog = false" />
+        <q-btn label="完了" color="primary" @click="registTaskComplete(selectedTask)" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -31,25 +31,36 @@
 
 <script setup>
 import { ref } from 'vue';
-import { getTaskList } from 'src/api/apiService';
+import { getTaskList, completeTask } from 'src/api/apiService';
+import useStore from 'src/store';
 
 // get and set tasks
 let tasks = ref([]);
 let selectedTask = ref(null);
 let confirmDialog = ref(false);
 
+const store = useStore();
+
 getTaskList().then((res) => {
   console.log(res);
   tasks.value = res.list;
 });
 
-const completeTask = (task) => {
+const selectTask = (task) => {
   // 完了ボタンが押されたときの処理をここに記述します
   console.log(`${task.name}が完了しました`);
 
   selectedTask.value = task;
   confirmDialog.value = true;
 };
+
+const registTaskComplete = (task) => {
+  confirmDialog.value = false;
+  completeTask(task.id).then(() => {
+    // バナー通知
+  });
+};
+
 </script>
 
 <style scoped>
