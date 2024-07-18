@@ -16,8 +16,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+
+import useStore from 'src/store';
+
+const store = useStore();
+
+if (store.state.account.isLoggedIn) {
+  // debug, show alert
+  alert('User is logged in');
+} else {
+  // debug, show alert
+  alert('User is not logged in');
+}
 
 defineOptions({
   name: 'MainLayout'
