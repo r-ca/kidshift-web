@@ -5,7 +5,8 @@
         <q-toolbar-title>
           KidShift for Web
         </q-toolbar-title>
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn flat round dense icon="refresh" />
+        <q-btn flat round dense icon="logout" />
       </q-toolbar>
     </q-header>
     <q-page-container>
