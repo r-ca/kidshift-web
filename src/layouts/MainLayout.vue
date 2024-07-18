@@ -20,8 +20,10 @@
 import useStore from 'src/store';
 import router from 'src/router';
 import { getMeDetails } from 'src/api/apiService';
+import { useQuasar } from 'quasar';
 
 const store = useStore();
+const $q = useQuasar();
 
 if (!store.state.account.isLoggedIn) {
   // to /login
@@ -34,12 +36,23 @@ const doRefresh = () => {
   getMeDetails().then((res) => {
     store.commit('account/setId', res.id);
     store.commit('account/setUsername', res.name);
+  }).then(() => {
+    $q.notify({
+      message: 'ユーザー情報を更新しました',
+      color: 'positive',
+      position: 'bottom-left',
+    });
   });
 };
 
 const doLogout = () => {
   console.log('doLogout');
   store.dispatch('account/logout');
+  $q.notify({
+    message: 'ログアウトしました',
+    color: 'positive',
+    position: 'bottom-left',
+  });
   router.push('/login');
 };
 
