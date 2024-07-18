@@ -2,8 +2,16 @@
   <router-view />
 </template>
 
-<script setup lang="ts">
-defineOptions({
-  name: 'App'
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useStore, Store } from 'vuex';
+import { StateInterface } from './store';
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const store: Store<StateInterface> = useStore();
+    return { store };
+  },
 });
 </script>
