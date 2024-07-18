@@ -56,7 +56,7 @@ const selectTask = (task) => {
 
 const registTaskComplete = (task) => {
   confirmDialog.value = false;
-  completeTask(task.id).then(() => {
+  completeTask(task.id, store.state.account.id).then(() => {
     // バナー通知
   });
 };
