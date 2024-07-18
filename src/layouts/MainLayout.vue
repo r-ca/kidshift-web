@@ -27,13 +27,6 @@ if (!store.state.account.isLoggedIn) {
   router.push('/login');
 }
 
-import { sendPing } from 'src/api/apiService';
-
-sendPing().then((response) => {
-  // debug, show alert
-  alert('Ping response: ' + response);
-});
-
 defineOptions({
   name: 'MainLayout'
 });
