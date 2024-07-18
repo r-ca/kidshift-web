@@ -18,15 +18,13 @@
 <script setup lang="ts">
 
 import useStore from 'src/store';
+import router from 'src/router';
 
 const store = useStore();
 
-if (store.state.account.isLoggedIn) {
-  // debug, show alert
-  alert('User is logged in');
-} else {
-  // debug, show alert
-  alert('User is not logged in');
+if (!store.state.account.isLoggedIn) {
+  // to /login
+  router.push('/login');
 }
 
 import { sendPing } from 'src/api/apiService';

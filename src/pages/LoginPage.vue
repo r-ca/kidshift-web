@@ -20,6 +20,7 @@
 import { ref, computed } from 'vue';
 import useStore from 'src/store';
 import { loginWithCode } from 'src/api/apiService';
+import router from 'src/router';
 
 const loginCode = ref('');
 
@@ -32,6 +33,7 @@ const login = () => {
     loginWithCode(loginCode.value).then((accessToken) => {
       store.commit('account/setToken', accessToken);
       store.commit('account/setLoggedIn', true);
+      router.push('/');
     }).catch((error) => {
       alert('ログインエラー: ' + error);
     });
