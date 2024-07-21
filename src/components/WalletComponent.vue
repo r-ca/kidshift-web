@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page>
     <TotalComponent :amount="paymentAmount" />
     <HistoryComponent :tasks="pastTasks" />
   </q-page>

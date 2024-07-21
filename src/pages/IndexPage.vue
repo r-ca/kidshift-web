@@ -14,11 +14,14 @@
             <WalletComponent />
           </QTabPanel>
         </QTabPanels>
-        <div v-else class="row flex-center">
-          <div class="col-4">
-            <TaskList />
+        <div v-else class="row justify-center">
+          <div class="col-6">
+            <QCard class="q-ma-md q-pa-md">
+              <div class="text-h6 q-py-md">タスク一覧</div>
+              <TaskList />
+            </QCard>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <WalletComponent />
           </div>
         </div>
@@ -42,4 +45,3 @@ const isMobile = computed(() => {
 <style scoped>
 /* 必要に応じてカスタムスタイルを追加 */
 </style>
-
