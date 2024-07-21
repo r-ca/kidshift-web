@@ -9,19 +9,19 @@
 </template>
 
 <script setup lang="ts">
-import { TaskBaseItem } from 'src/models/task';
+import { HistoryItem } from 'src/models/internal';
 import { computed } from 'vue';
 
 
 interface Props {
-  tasks: TaskBaseItem[];
+  histories: HistoryItem[];
 }
 
 // Props の取得
 const props = defineProps<Props>();
 
 const amount = computed(() => {
-  return props.tasks.reduce((acc, task) => acc + task.reward, 0);
+  return props.histories.reduce((acc, history) => acc + history.reward, 0);
 });
 
 </script>
