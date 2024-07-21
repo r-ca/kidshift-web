@@ -6,8 +6,8 @@
           <span><q-icon name="family_restroom" /></span>
           KidShift  <span class="text-subtitle2" style="color: #CCCCCC" >{{ store.state.account.username }}</span> <!-- TODO: ハードコードやめる -->
         </q-toolbar-title>
-        <q-btn flat round dense icon="refresh" @click="doRefresh()" />
-        <q-btn flat round dense icon="logout" @click="doLogout()" />
+        <q-btn flat round dense class="q-mx-sm" icon="refresh" @click="doRefresh()" />
+        <q-btn flat round dense class="q-mx-sm" icon="logout" @click="doLogout()" />
       </q-toolbar>
     </q-header>
     <q-page-container>
