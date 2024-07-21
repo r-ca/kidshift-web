@@ -79,16 +79,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.q-btn {
-  background-color: #3b5998;
-  color: #fff;
-}
 
-.q-item-section {
-  align-items: center;
-}
-
-.q-list {
-  background: #f5f5f5;
-}
 </style>
