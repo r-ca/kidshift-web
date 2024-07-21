@@ -62,10 +62,3 @@ defineOptions({
 });
 
 </script>
-<style lang="scss">
-
-.q-toolbar {
-  background-color: darken($primary, 30%);
-}
-
-</style>
