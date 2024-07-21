@@ -14,9 +14,12 @@
             <WalletComponent />
           </QTabPanel>
         </QTabPanels>
-        <div v-else class="row">
-          <div class="col-6">
+        <div v-else class="row flex-center">
+          <div class="col-4">
             <TaskList />
+          </div>
+          <div class="col-4">
+            <WalletComponent />
           </div>
         </div>
       </QPageContainer>
