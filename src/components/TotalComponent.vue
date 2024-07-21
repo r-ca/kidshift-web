@@ -8,16 +8,22 @@
   </q-card>
 </template>
 
-<script>
-export default {
-  name: 'TotalComponent',
-  props: {
-    amount: {
-      type: Number,
-      required: true
-    }
-  }
-};
+<script setup lang="ts">
+import { TaskBaseItem } from 'src/models/task';
+import { computed } from 'vue';
+
+
+interface Props {
+  tasks: TaskBaseItem[];
+}
+
+// Props の取得
+const props = defineProps<Props>();
+
+const amount = computed(() => {
+  return props.tasks.reduce((acc, task) => acc + task.reward, 0);
+});
+
 </script>
 
 <style scoped>
