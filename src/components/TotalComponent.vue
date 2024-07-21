@@ -1,9 +1,9 @@
 <template>
   <q-card class="q-ma-md">
     <q-card-section class="row items-center">
-      <q-icon name="attach_money" class="text-primary q-mr-md" size="42px" />
+      <q-icon name="attach_money" class="text-primary q-mr-lg" size="42px" />
       <div>
-        <div class="text-h7">支払い前</div>
+        <div class="text-h7">支払い前合計</div>
         <div class="text-h4">{{ formattedAmount }} 円</div>
       </div>
     </q-card-section>
