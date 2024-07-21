@@ -1,5 +1,5 @@
 <template>
-  <QList bordered>
+  <QList>
     <QItem v-for="task in tasks" :key="task.id" class="q-py-md q-px-md">
       <QItemSection>
         <QItemLabel>{{ task.name }}</QItemLabel>
