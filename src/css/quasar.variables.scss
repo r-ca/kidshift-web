@@ -27,9 +27,11 @@
 
 // src/css/quasar.variables.scss
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
 
-$typography-font-family : 'Noto Sans JP', sans-serif;
+// $typography-font-family : 'Noto Sans JP', sans-serif;
+$typography-font-family : 'M PLUS Rounded 1c', sans-serif;
 
 $primary   : #7d9486;
 $secondary : #aeab9a;
