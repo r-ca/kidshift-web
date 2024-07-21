@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'PastTasks',
+  name: 'HistoryComponent',
   props: {
     tasks: {
       type: Array,
