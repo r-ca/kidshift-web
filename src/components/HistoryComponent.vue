@@ -1,22 +1,18 @@
 <template>
-  <q-card class="q-ma-md">
-    <q-card-section>
-      <div class="text-h6">
-        過去のお手伝い
-      </div>
-      <q-list padding>
-        <q-item v-for="(history, index) in props.histories" :key="index" clickable>
-          <q-item-section>
-            <q-item-label>{{ history.name }}</q-item-label>
-            <!-- <q-item-label caption>{{ task.date }}</q-item-label> -->
-          </q-item-section>
-          <q-item-section side>
-            <q-item-label>{{ history.reward }} 円</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-card-section>
-  </q-card>
+  <div class="text-h6">
+    過去のお手伝い
+  </div>
+  <q-list padding>
+    <q-item v-for="(history, index) in props.histories" :key="index" clickable>
+      <q-item-section>
+        <q-item-label>{{ history.name }}</q-item-label>
+        <!-- <q-item-label caption>{{ task.date }}</q-item-label> -->
+      </q-item-section>
+      <q-item-section side>
+        <q-item-label>{{ history.reward }} 円</q-item-label>
+      </q-item-section>
+    </q-item>
+  </q-list>
 </template>
 
 <script setup lang="ts">
@@ -34,4 +30,3 @@ const props = defineProps<Props>();
 <style scoped>
 /* 必要に応じてスタイルを追加 */
 </style>
-
