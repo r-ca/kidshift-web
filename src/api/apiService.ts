@@ -1,6 +1,9 @@
 import { api } from 'boot/axios';
 import { ChildDetailsResponse } from 'src/models/child';
 import { TaskListResponse } from 'src/models/task';
+import useStore from 'src/store';
+
+const store = useStore();
 
 export const sendPing = async (): Promise<string> => {
   const response = await api.get('/meta/ping');
@@ -33,6 +36,7 @@ export const getTaskList = async (): Promise<TaskListResponse> => {
   if (response.status !== 200) {
     throw new Error('タスク情報の取得に失敗しました');
   }
+  store.commit('cache/setTasks', response.data.list); // Update cache
   return response.data;
 }
 
