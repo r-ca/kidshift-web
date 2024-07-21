@@ -3,8 +3,8 @@ import { RootStateInterface } from '../index';
 import { CacheStateInterface } from './state';
 
 const getters: GetterTree<CacheStateInterface, RootStateInterface> = {
-  someGetter (/* context */) {
-    // your code
+  getTasks: (state: CacheStateInterface) => {
+    return state.tasks;
   }
 };
 
