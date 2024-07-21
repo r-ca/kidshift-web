@@ -50,7 +50,7 @@ const isMobile = computed(() => {
   return window.innerWidth < 600; // 600px以下をモバイルデバイスとする
 });
 
-const changeContainPaid = (value: boolean) => {
+const changeContainPaid = (value: boolean) => { // 更新処理が増えてきたら関数で隔離するべき？
   getHistories(cachedChildId.value, value).then((res) => {
     histories.value = res;
   });
