@@ -1,32 +1,32 @@
 <template>
-  <q-list bordered>
-    <q-item v-for="task in tasks" :key="task.id" class="q-py-md q-px-md">
-      <q-item-section>
-        <q-item-label>{{ task.name }}</q-item-label>
-        <q-item-label caption>{{ task.reward }}円</q-item-label>
-      </q-item-section>
-      <q-item-section side>
-        <q-btn @click="selectTask(task)" label="完了" color="primary" rounded />
-      </q-item-section>
-    </q-item>
-  </q-list>
-  <q-dialog v-model="confirmDialog" backdrop-filter="blur(4px)" persistent>
-    <q-card style="max-width: 512px; width: 100%;" class="q-py-sm q-px-sm">
-      <q-card-section class="text-h6">タスクを完了しますか？</q-card-section>
-      <q-card-section>
-        <q-item>
-          <q-item-section>
-            <q-item-label>{{ selectedTask.name }}</q-item-label>
-            <q-item-label caption>{{ selectedTask.reward }}円</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-card-section>
-      <q-card-actions align="right">
-        <q-btn label="キャンセル" color="primary" @click="confirmDialog = false" />
-        <q-btn label="完了" color="primary" @click="registTaskComplete(selectedTask)" />
-      </q-card-actions>
-    </q-card>
-  </q-dialog>
+  <QList bordered>
+    <QItem v-for="task in tasks" :key="task.id" class="q-py-md q-px-md">
+      <QItemSection>
+        <QItemLabel>{{ task.name }}</QItemLabel>
+        <QItemLabel caption>{{ task.reward }}円</QItemLabel>
+      </QItemSection>
+      <QItemSection side>
+        <QBtn @click="selectTask(task)" label="完了" color="primary" rounded />
+      </QItemSection>
+    </QItem>
+  </QList>
+  <QDialog v-model="confirmDialog" backdrop-filter="blur(4px)" persistent>
+    <QCard style="max-width: 512px; width: 100%;" class="q-py-sm q-px-sm">
+      <QCardSection class="text-h6">タスクを完了しますか？</QCardSection>
+      <QCardSection>
+        <QItem>
+          <QItemSection>
+            <QItemLabel>{{ selectedTask.name }}</QItemLabel>
+            <QItemLabel caption>{{ selectedTask.reward }}円</QItemLabel>
+          </QItemSection>
+        </QItem>
+      </QCardSection>
+      <QCardActions align="right">
+        <QBtn label="キャンセル" color="primary" @click="confirmDialog = false" />
+        <QBtn label="完了" color="primary" @click="registTaskComplete(selectedTask)" />
+      </QCardActions>
+    </QCard>
+  </QDialog>
 </template>
 
 <script setup lang="ts">
