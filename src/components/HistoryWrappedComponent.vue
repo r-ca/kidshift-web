@@ -16,9 +16,10 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const emit = defineEmits(['containPaid:checked']);
 
 const handleContainPaidCheckbox = (value: boolean) => {
-  console.log(value);
+  emit('containPaid:checked', value);
 };
 
 </script>
