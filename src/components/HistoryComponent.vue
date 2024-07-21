@@ -4,6 +4,8 @@
   </div>
   <q-list padding>
     <q-item v-for="(history, index) in props.histories" :key="index" clickable>
+      <QIcon name="check" color="positive" class="q-my-auto q-mr-sm" />
+      <QIcon name="schedule" color="warning" class="q-my-auto q-mr-sm" />
       <q-item-section>
         <q-item-label>{{ history.name }}</q-item-label>
         <!-- <q-item-label caption>{{ task.date }}</q-item-label> -->
