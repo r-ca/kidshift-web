@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-pa-md q-mb-md q-elevation-2" style="max-width: 400px; margin: auto;">
+  <q-card class="q-ma-md">
     <q-card-section class="row items-center">
       <q-icon name="attach_money" class="text-primary q-mr-md" size="42px" />
       <div>
