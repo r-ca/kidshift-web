@@ -1,4 +1,3 @@
-import { HistoryListResponse, HistoryResponse } from "src/models/history";
 import { HistoryItem } from "src/models/internal";
 import { getHistory } from "src/api/apiService";
 import useStore from "src/store";
