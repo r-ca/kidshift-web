@@ -1,7 +1,7 @@
 <template>
   <q-page>
-    <TotalComponent :tasks=tasks />
-    <HistoryComponent :tasks=tasks />
+    <TotalComponent :histories=histories />
+    <HistoryComponent :histories=histories />
   </q-page>
 </template>
 
@@ -20,10 +20,10 @@ interface Props {
 // Props の取得
 const props = defineProps<Props>();
 
-const tasks = ref([] as HistoryItem[]);
+const histories = ref([] as HistoryItem[]);
 
 getHistories(props.childId, true).then((res) => {
-  tasks.value = res;
+  histories.value = res;
 });
 
 </script>
