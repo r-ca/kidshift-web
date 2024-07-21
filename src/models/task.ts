@@ -3,7 +3,7 @@ interface TaskBaseItem {
     name: string,
     iconEmoji?: string,
     bgColor?: string,
-    reward: number
+    reward: number,
     isPaid: boolean
 }
 
