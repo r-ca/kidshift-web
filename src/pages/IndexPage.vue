@@ -10,6 +10,9 @@
           <QTabPanel name="tab1">
             <TaskList />
           </QTabPanel>
+          <QTabPanel name="tab2">
+            <WalletComponent />
+          </QTabPanel>
         </QTabPanels>
         <div v-else class="row">
           <div class="col-6">
@@ -24,6 +27,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import TaskList from 'components/TaskListComponent.vue';
+import WalletComponent from 'src/components/WalletComponent.vue';
 
 const tab = ref('tab1');
 
