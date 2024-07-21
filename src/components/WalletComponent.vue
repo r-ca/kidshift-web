@@ -1,7 +1,7 @@
 <template>
   <QPage>
     <TotalComponent :histories=histories />
-    <HistoryWrappedComponent :histories=histories />
+    <HistoryWrappedComponent :histories=histories @containPaid:checked="changeContainPaid" />
   </QPage>
 </template>
 
@@ -23,7 +23,13 @@ const props = defineProps<Props>();
 
 const histories = ref([] as HistoryItem[]);
 
-getHistories(props.childId, true).then((res) => {
+const changeContainPaid = (value: boolean) => {
+  getHistories(props.childId, value).then((res) => {
+    histories.value = res;
+  });
+};
+
+getHistories(props.childId, false).then((res) => {
   histories.value = res;
 });
 
