@@ -14,4 +14,4 @@ interface HistoryListResponse {
     list: HistoryResponse[]
 }
 
-export type { HistoryResponse, HistoryListResponse }
+export type { HistoryBaseItem, HistoryResponse, HistoryListResponse }
