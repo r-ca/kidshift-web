@@ -27,6 +27,10 @@
 
 // src/css/quasar.variables.scss
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+$typography-font-family : 'Noto Sans JP', sans-serif;
+
 $primary   : #7d9486;
 $secondary : #aeab9a;
 $accent    : #a08199;
