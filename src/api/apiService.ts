@@ -44,3 +44,18 @@ export const completeTask = async (taskId: string, childId: string): Promise<voi
     throw new Error('タスクの完了に失敗しました');
   }
 }
+
+export const getHistory = async (childId: string, containPaid?: boolean): Promise<TaskListResponse> => {
+  if (containPaid !== undefined) {
+    const response = await api.get(`/task/history/${childId}`, { params: { containPaid } });
+    if (response.status !== 200) {
+      throw new Error('履歴情報の取得に失敗しました');
+    }
+    return response.data;
+  }
+  const response = await api.get(`/task/history/${childId}`);
+  if (response.status !== 200) {
+    throw new Error('履歴情報の取得に失敗しました');
+  }
+  return response.data;
+}
