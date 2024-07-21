@@ -3,8 +3,8 @@
     <q-card-section class="row items-center">
       <q-icon name="attach_money" class="text-primary q-mr-md" size="42px" />
       <div>
-        <div class="text-h6">支払予定額</div>
-        <div class="text-h5 text-bold">{{ formattedAmount }} 円</div>
+        <div class="text-h7">支払い前</div>
+        <div class="text-h4">{{ formattedAmount }} 円</div>
       </div>
     </q-card-section>
   </q-card>
@@ -30,8 +30,5 @@ const formattedAmount = computed(() => {
 </script>
 
 <style scoped>
-.text-bold {
-  font-weight: bold;
-}
 </style>
 
