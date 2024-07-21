@@ -8,6 +8,19 @@
 <script setup lang="ts">
 import TotalComponent from 'components/TotalComponent.vue';
 import HistoryComponent from 'components/HistoryComponent.vue';
+import { getHistory } from 'src/api/apiService';
+
+// Props の型定義
+interface Props {
+  childId: string;
+}
+
+// Props の取得
+const props = defineProps<Props>();
+
+getHistory(props.childId).then((res) => {
+  console.log(res);
+});
 
 // 仮置きデータ
 const paymentAmount = 500; // お手伝いの報酬

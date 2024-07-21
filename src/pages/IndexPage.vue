@@ -8,21 +8,21 @@
         </QTabs>
         <QTabPanels v-if="isMobile" v-model="tab" animated>
           <QTabPanel name="tab1">
-            <TaskList />
+            <TaskList :childId=cachedChildId />
           </QTabPanel>
           <QTabPanel name="tab2">
-            <WalletComponent />
+            <WalletComponent :childId=cachedChildId />
           </QTabPanel>
         </QTabPanels>
         <div v-else class="row justify-center">
           <div class="col-6">
             <QCard class="q-ma-md q-pa-md">
               <div class="text-h6 q-py-md">タスク一覧</div>
-              <TaskList />
+              <TaskList :childId=cachedChildId />
             </QCard>
           </div>
           <div class="col-6">
-            <WalletComponent />
+            <WalletComponent :childId=cachedChildId />
           </div>
         </div>
       </QPageContainer>
@@ -30,12 +30,16 @@
   </QPage>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import TaskList from 'components/TaskListComponent.vue';
 import WalletComponent from 'src/components/WalletComponent.vue';
+import useStore from 'src/store';
 
+const store = useStore();
 const tab = ref('tab1');
+
+const cachedChildId = computed(() => store.state.account.id);
 
 const isMobile = computed(() => {
   return window.innerWidth < 600; // 600px以下をモバイルデバイスとする
