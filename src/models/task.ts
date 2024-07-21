@@ -4,6 +4,7 @@ interface TaskBaseItem {
     iconEmoji?: string,
     bgColor?: string,
     reward: number
+    isPaid: boolean
 }
 
 interface TaskResponse extends TaskBaseItem {
