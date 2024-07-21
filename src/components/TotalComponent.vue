@@ -1,11 +1,11 @@
 <template>
-  <q-card class="q-ma-md">
-    <q-card-section>
+  <QCard class="q-ma-md">
+    <QCardSection>
       <div class="text-h5">
         支払予定額: {{ amount }} 円
       </div>
-    </q-card-section>
-  </q-card>
+    </QCardSection>
+  </QCard>
 </template>
 
 <script setup lang="ts">
