@@ -1,8 +1,8 @@
 <template>
-  <q-page>
+  <QPage>
     <TotalComponent :histories=histories />
     <HistoryComponent :histories=histories />
-  </q-page>
+  </QPage>
 </template>
 
 <script setup lang="ts">
