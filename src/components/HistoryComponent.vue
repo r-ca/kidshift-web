@@ -1,7 +1,10 @@
 <template>
   <div class="text-h6" style="display: flex; justify-content: space-between; align-items: center;">
     <span>過去のお手伝い</span>
-    <q-checkbox v-model="containPaid"></q-checkbox>
+    <div class="text-subtitle2">
+      <span>支払い済みを含む</span>
+      <q-checkbox v-model="containPaid"></q-checkbox>
+    </div>
   </div>
   <q-list padding>
     <q-item v-for="(history, index) in props.histories" :key="index" clickable>
