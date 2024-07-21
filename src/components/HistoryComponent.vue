@@ -5,13 +5,13 @@
         過去のお手伝い
       </div>
       <q-list bordered padding>
-        <q-item v-for="(task, index) in tasks" :key="index" clickable>
+        <q-item v-for="(task, index) in props.tasks" :key="index" clickable>
           <q-item-section>
             <q-item-label>{{ task.name }}</q-item-label>
-            <q-item-label caption>{{ task.date }}</q-item-label>
+            <!-- <q-item-label caption>{{ task.date }}</q-item-label> -->
           </q-item-section>
           <q-item-section side>
-            <q-item-label>{{ task.amount }} 円</q-item-label>
+            <q-item-label>{{ task.reward }} 円</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
@@ -19,16 +19,16 @@
   </q-card>
 </template>
 
-<script>
-export default {
-  name: 'HistoryComponent',
-  props: {
-    tasks: {
-      type: Array,
-      required: true
-    }
-  }
-};
+<script setup lang="ts">
+import { TaskBaseItem } from 'src/models/task';
+
+interface Props {
+  tasks: TaskBaseItem[];
+}
+
+// Props の取得
+const props = defineProps<Props>();
+
 </script>
 
 <style scoped>
