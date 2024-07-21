@@ -1,7 +1,7 @@
 <template>
   <div class="text-h6" style="display: flex; justify-content: space-between; align-items: center;">
     <span>過去のお手伝い</span>
-    <q-checkbox v-model="allChecked"></q-checkbox>
+    <q-checkbox v-model="containPaid"></q-checkbox>
   </div>
   <q-list padding>
     <q-item v-for="(history, index) in props.histories" :key="index" clickable>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { HistoryItem } from 'src/models/internal';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 interface Props {
   histories: HistoryItem[];
@@ -28,8 +28,14 @@ interface Props {
 
 // Props の取得
 const props = defineProps<Props>();
+const emit = defineEmits(['containPaid:checked']);
 
-const allChecked = ref(false);
+const containPaid = ref(false);
+
+watch(() => containPaid.value, (value) => {
+  console.log(value);
+  emit('containPaid:checked', value);
+});
 
 </script>
 

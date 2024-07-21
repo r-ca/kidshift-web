@@ -1,7 +1,7 @@
 <template>
   <QCard class="q-ma-md">
     <QCardSection>
-      <HistoryComponent :histories=props.histories />
+      <HistoryComponent :histories=props.histories @containPaid:checked="handleContainPaidCheckbox"/>
     </QCardSection>
   </QCard>
 </template>
@@ -16,5 +16,9 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+
+const handleContainPaidCheckbox = (value: boolean) => {
+  console.log(value);
+};
 
 </script>
