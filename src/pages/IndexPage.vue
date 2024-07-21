@@ -12,7 +12,7 @@
           </QTabPanel>
           <QTabPanel name="tab2">
             <TotalComponent :histories=histories />
-            <HistoryComponent :histories=histories />
+            <HistoryComponent :histories=histories @containPaid:checked="changeContainPaid"/>
           </QTabPanel>
         </QTabPanels>
         <div v-else class="row justify-center">
@@ -50,9 +50,15 @@ const isMobile = computed(() => {
   return window.innerWidth < 600; // 600px以下をモバイルデバイスとする
 });
 
+const changeContainPaid = (value: boolean) => {
+  getHistories(cachedChildId.value, value).then((res) => {
+    histories.value = res;
+  });
+};
+
 const histories = ref([] as HistoryItem[]);
 
-getHistories(cachedChildId.value, true).then((res) => {
+getHistories(cachedChildId.value, false).then((res) => { // TODO: デスクトップの場合無駄にここで2回取得してるのでなんとかする
   histories.value = res;
 });
 
