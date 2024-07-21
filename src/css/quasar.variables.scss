@@ -25,52 +25,16 @@
 // $warning   : #F2C037;
 //
 
-$color-light-gray: #FBFAFA;
-$color-muted-green: #7D9486;
-$color-gray-olive: #AEAB9A;
-$color-muted-purple: #A08199;
-$color-muted-olive: #6C7659;
+// src/css/quasar.variables.scss
 
-$primary-color: $color-gray-olive;
-$info-color: $color-muted-olive;
-$success-color: #69ae66;
-$warning-color: #e79e2e;
-$danger-color: #f44336;
+$primary   : #7d9486;
+$secondary : #aeab9a;
+$accent    : #a08199;
 
-// Text colors
-$text-color: #343a40;
-$text-color-light: #6c757d;
-$text-color-lighter: #adb5bd;
-$text-color-lightest: #ced4da;
+$dark      : #1d1d1d;
+$dark-page : #121212;
 
-$primary: $primary-color; // これはこの名前だと勝手に適応されるので
-
-// Example usage in SCSS
-body {
-    background-color: $color-light-gray;
-}
-
-.button-primary {
-    background-color: $primary-color;
-    color: $color-light-gray;
-}
-
-.button-info {
-    background-color: $info-color;
-    color: $color-light-gray;
-}
-
-.button-success {
-    background-color: $success-color;
-    color: $color-light-gray;
-}
-
-.button-warning {
-    background-color: $warning-color;
-    color: $color-light-gray;
-}
-
-.button-danger {
-    background-color: $danger-color;
-    color: $color-light-gray;
-}
+$positive  : #69ae66;
+$negative  : #f44336;
+$info      : #6c7659;
+$warning   : #e79e2e;
