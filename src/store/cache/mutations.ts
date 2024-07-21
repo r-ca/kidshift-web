@@ -1,10 +1,11 @@
+import { TaskBaseItem } from 'src/models/task';
 import { MutationTree } from 'vuex';
 import { CacheStateInterface } from './state';
 
 const mutation: MutationTree<CacheStateInterface> = {
-  someMutation (/* state: ExampleStateInterface */) {
-    // your code
-  }
+  setTasks(state: CacheStateInterface, tasks: TaskBaseItem[]) {
+    state.tasks = tasks;
+  },
 };
 
 export default mutation;
