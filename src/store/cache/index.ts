@@ -5,7 +5,7 @@ import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
 
-const exampleModule: Module<CacheStateInterface, RootStateInterface> = {
+const cahceStateModule: Module<CacheStateInterface, RootStateInterface> = {
   namespaced: true,
   actions,
   getters,
@@ -13,4 +13,4 @@ const exampleModule: Module<CacheStateInterface, RootStateInterface> = {
   state
 };
 
-export default exampleModule;
+export default cahceStateModule;
