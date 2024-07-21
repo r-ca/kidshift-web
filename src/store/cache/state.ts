@@ -1,10 +1,12 @@
-export interface ExampleStateInterface {
-  prop: boolean;
+import { TaskBaseItem } from "src/models/task";
+
+export interface CacheStateInterface {
+  tasks: TaskBaseItem[];
 }
 
-function state(): ExampleStateInterface {
+function state(): CacheStateInterface {
   return {
-    prop: false,
+    tasks: [],
   };
 }
 
