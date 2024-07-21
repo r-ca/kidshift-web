@@ -5,7 +5,7 @@
         過去のお手伝い
       </div>
       <q-list bordered padding>
-        <q-item v-for="(task, index) in props.tasks" :key="index" clickable>
+        <q-item v-for="(task, index) in props.histories" :key="index" clickable>
           <q-item-section>
             <q-item-label>{{ task.name }}</q-item-label>
             <!-- <q-item-label caption>{{ task.date }}</q-item-label> -->
@@ -20,10 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import { TaskBaseItem } from 'src/models/task';
+import { HistoryItem } from 'src/models/internal';
 
 interface Props {
-  tasks: TaskBaseItem[];
+  histories: HistoryItem[];
 }
 
 // Props の取得
