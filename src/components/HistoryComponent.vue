@@ -4,7 +4,7 @@
       <div class="text-h6">
         過去のお手伝い
       </div>
-      <q-list bordered padding>
+      <q-list padding>
         <q-item v-for="(history, index) in props.histories" :key="index" clickable>
           <q-item-section>
             <q-item-label>{{ history.name }}</q-item-label>
