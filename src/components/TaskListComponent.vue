@@ -6,7 +6,7 @@
         <QItemLabel caption>{{ task.reward }}円</QItemLabel>
       </QItemSection>
       <QItemSection side>
-        <QBtn @click="selectTask(task)" label="完了" color="positive" rounded />
+        <QBtn @click="selectTask(task)" label="完了" color="positive" icon="check" rounded />
       </QItemSection>
     </QItem>
   </QList>
