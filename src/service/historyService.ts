@@ -7,7 +7,7 @@ const store = useStore();
 
 async function getHistories(childId: string, containPaid?: boolean): Promise<HistoryItem[]> {
   const HistoriesResponse = await getHistory(childId, containPaid);
-  const taskList = store.state.cache.tasks; // use task
+  const taskList = store.state.cache.tasks; // use cache
 
   const result: HistoryItem[] = HistoriesResponse.list.map((history) => {
     const task = taskList.find((task) => task.id === history.taskId);
