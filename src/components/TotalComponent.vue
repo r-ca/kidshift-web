@@ -1,32 +1,37 @@
 <template>
-  <QCard class="q-ma-md">
-    <QCardSection>
-      <div class="text-h5">
-        支払予定額: {{ amount }} 円
+  <q-card class="q-pa-md q-mb-md q-elevation-2" style="max-width: 400px; margin: auto;">
+    <q-card-section class="row items-center">
+      <q-icon name="attach_money" class="text-primary q-mr-md" size="42px" />
+      <div>
+        <div class="text-h6">支払予定額</div>
+        <div class="text-h5 text-bold">{{ formattedAmount }} 円</div>
       </div>
-    </QCardSection>
-  </QCard>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script setup lang="ts">
-import { HistoryItem } from 'src/models/internal';
 import { computed } from 'vue';
-
+import { HistoryItem } from 'src/models/internal';
 
 interface Props {
   histories: HistoryItem[];
 }
 
-// Props の取得
 const props = defineProps<Props>();
 
 const amount = computed(() => {
   return props.histories.reduce((acc, history) => acc + history.reward, 0);
 });
 
+const formattedAmount = computed(() => {
+  return amount.value.toLocaleString();
+});
 </script>
 
 <style scoped>
-/* 必要に応じてスタイルを追加 */
+.text-bold {
+  font-weight: bold;
+}
 </style>
 
