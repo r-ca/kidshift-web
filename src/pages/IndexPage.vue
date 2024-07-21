@@ -11,7 +11,8 @@
             <TaskList :childId=cachedChildId />
           </QTabPanel>
           <QTabPanel name="tab2">
-            <WalletComponent :childId=cachedChildId />
+            <TotalComponent :histories=histories />
+            <HistoryComponent :histories=histories />
           </QTabPanel>
         </QTabPanels>
         <div v-else class="row justify-center">
@@ -34,7 +35,11 @@
 import { ref, computed } from 'vue';
 import TaskList from 'components/TaskListComponent.vue';
 import WalletComponent from 'src/components/WalletComponent.vue';
+import TotalComponent from 'src/components/TotalComponent.vue';
+import HistoryComponent from 'src/components/HistoryComponent.vue';
 import useStore from 'src/store';
+import { getHistories } from 'src/service/historyService';
+import { HistoryItem } from 'src/models/internal';
 
 const store = useStore();
 const tab = ref('tab1');
@@ -44,6 +49,13 @@ const cachedChildId = computed(() => store.state.account.id);
 const isMobile = computed(() => {
   return window.innerWidth < 600; // 600px以下をモバイルデバイスとする
 });
+
+const histories = ref([] as HistoryItem[]);
+
+getHistories(cachedChildId.value, true).then((res) => {
+  histories.value = res;
+});
+
 </script>
 
 <style scoped>
