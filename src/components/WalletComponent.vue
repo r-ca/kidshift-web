@@ -9,6 +9,7 @@
 import TotalComponent from 'components/TotalComponent.vue';
 import HistoryComponent from 'components/HistoryComponent.vue';
 
+// 仮置きデータ
 const paymentAmount = 500; // お手伝いの報酬
 const pastTasks = [
   { name: '皿洗い', date: '2024-07-15', amount: 200 },
