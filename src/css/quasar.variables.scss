@@ -37,6 +37,14 @@ $success-color: #69ae66;
 $warning-color: #e79e2e;
 $danger-color: #f44336;
 
+// Text colors
+$text-color: #343a40;
+$text-color-light: #6c757d;
+$text-color-lighter: #adb5bd;
+$text-color-lightest: #ced4da;
+
+$primary: $primary-color; // これはこの名前だと勝手に適応されるので
+
 // Example usage in SCSS
 body {
     background-color: $color-light-gray;
