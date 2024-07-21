@@ -6,7 +6,7 @@
         <q-item-label caption>{{ task.reward }}円</q-item-label>
       </q-item-section>
       <q-item-section side>
-        <q-btn @click="selectTask(task)" label="完了" color="primary" rounded/>
+        <q-btn @click="selectTask(task)" label="完了" color="primary" rounded />
       </q-item-section>
     </q-item>
   </q-list>
@@ -29,36 +29,38 @@
   </q-dialog>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import { getTaskList, completeTask } from 'src/api/apiService';
-import useStore from 'src/store';
+import { TaskBaseItem, TaskListResponse } from 'src/models/task';
 import { useQuasar } from 'quasar';
 
-// get and set tasks
-let tasks = ref([]);
-let selectedTask = ref(null);
-let confirmDialog = ref(false);
+// Props の型定義
+interface Props {
+  childId: string;
+}
 
-const store = useStore();
+// Props の取得
+const props = defineProps<Props>();
+
+const tasks = ref([] as TaskBaseItem[]);
+const selectedTask = ref({} as TaskBaseItem);
+const confirmDialog = ref(false);
 const $q = useQuasar();
 
-getTaskList().then((res) => {
-  console.log(res);
+const fetchTaskList = async () => {
+  const res: TaskListResponse = await getTaskList();
   tasks.value = res.list;
-});
+};
 
-const selectTask = (task) => {
-  // 完了ボタンが押されたときの処理をここに記述します
-  console.log(`${task.name}が完了しました`);
-
+const selectTask = (task: TaskBaseItem) => {
   selectedTask.value = task;
   confirmDialog.value = true;
 };
 
-const registTaskComplete = (task) => {
+const registTaskComplete = (task: TaskBaseItem) => {
   confirmDialog.value = false;
-  completeTask(task.id, store.state.account.id).then(() => {
+  completeTask(task.id, props.childId).then(() => {
     $q.notify({
       message: 'タスクを完了しました',
       color: 'positive',
@@ -70,6 +72,10 @@ const registTaskComplete = (task) => {
   });
 };
 
+onMounted(() => {
+  fetchTaskList();
+});
+
 </script>
 
 <style scoped>
@@ -77,9 +83,11 @@ const registTaskComplete = (task) => {
   background-color: #3b5998;
   color: #fff;
 }
+
 .q-item-section {
   align-items: center;
 }
+
 .q-list {
   background: #f5f5f5;
 }
