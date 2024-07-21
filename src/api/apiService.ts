@@ -1,5 +1,6 @@
 import { api } from 'boot/axios';
 import { ChildDetailsResponse } from 'src/models/child';
+import { HistoryListResponse } from 'src/models/history';
 import { TaskListResponse } from 'src/models/task';
 import useStore from 'src/store';
 
@@ -49,7 +50,7 @@ export const completeTask = async (taskId: string, childId: string): Promise<voi
   }
 }
 
-export const getHistory = async (childId: string, containPaid?: boolean): Promise<TaskListResponse> => {
+export const getHistory = async (childId: string, containPaid?: boolean): Promise<HistoryListResponse> => {
   if (containPaid !== undefined) {
     const response = await api.get(`/task/history/${childId}`, { params: { containPaid } });
     if (response.status !== 200) {
