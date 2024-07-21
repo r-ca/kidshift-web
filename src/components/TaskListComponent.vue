@@ -22,8 +22,8 @@
         </QItem>
       </QCardSection>
       <QCardActions align="right">
-        <QBtn label="キャンセル" color="primary" @click="confirmDialog = false" />
-        <QBtn label="完了" color="primary" @click="registTaskComplete(selectedTask)" />
+        <QBtn label="キャンセル" color="secondary" @click="confirmDialog = false" />
+        <QBtn label="完了" color="positive" @click="registTaskComplete(selectedTask)" />
       </QCardActions>
     </QCard>
   </QDialog>
