@@ -2,9 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
+        <QAvatar icon="family_restroom" />
         <q-toolbar-title>
-          <span><q-icon name="family_restroom" /></span>
-          KidShift  <span class="text-subtitle2" style="color: #CCCCCC" >{{ store.state.account.username }}</span> <!-- TODO: ハードコードやめる -->
+          KidShift  <span class="subtitle-childname" >{{ store.state.account.username }}</span> <!-- TODO: ハードコードやめる -->
         </q-toolbar-title>
         <q-btn flat round dense class="q-mx-sm" icon="refresh" @click="doRefresh()" />
         <q-btn flat round dense class="q-mx-sm" icon="logout" @click="doLogout()" />
@@ -62,3 +62,12 @@ defineOptions({
 });
 
 </script>
+
+<style lang="scss">
+
+.subtitle-childname {
+  font-size: 0.6em;
+  color: darken(white, 10%);
+}
+
+</style>
