@@ -1,13 +1,14 @@
 <template>
   <QPage>
     <TotalComponent :histories=histories />
-    <HistoryComponent :histories=histories />
+    <HistoryWrappedComponent :histories=histories />
   </QPage>
 </template>
 
 <script setup lang="ts">
 import TotalComponent from 'components/TotalComponent.vue';
-import HistoryComponent from 'components/HistoryComponent.vue';
+// import HistoryComponent from 'components/HistoryComponent.vue';
+import HistoryWrappedComponent from './HistoryWrappedComponent.vue';
 import { ref } from 'vue';
 import { getHistories } from 'src/service/historyService';
 import { HistoryItem } from 'src/models/internal';
