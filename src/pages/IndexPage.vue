@@ -2,7 +2,7 @@
   <QPage class="flex flex-center q-my-md">
     <QLayout view="hHh Lpr lFf">
       <QPageContainer>
-        <QTabs v-if="isMobile" v-model="tab" class="text-teal" align="left" dense>
+        <QTabs v-if="isMobile" v-model="tab" active-color="primary" indicator-color="secondary" align="left" dense>
           <QTab slot="title" name="tab1" v-model="tab" label="タスク一覧" />
           <QTab slot="title" name="tab2" v-model="tab" label="ウォレット" />
         </QTabs>
