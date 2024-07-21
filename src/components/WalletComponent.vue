@@ -1,7 +1,7 @@
 <template>
   <q-page>
-    <TotalComponent :amount="paymentAmount" />
-    <HistoryComponent :tasks="pastTasks" />
+    <TotalComponent :tasks=tasks />
+    <HistoryComponent :tasks=tasks />
   </q-page>
 </template>
 
@@ -9,6 +9,8 @@
 import TotalComponent from 'components/TotalComponent.vue';
 import HistoryComponent from 'components/HistoryComponent.vue';
 import { getHistory } from 'src/api/apiService';
+import { TaskBaseItem } from 'src/models/task';
+import { ref } from 'vue';
 
 // Props の型定義
 interface Props {
@@ -18,16 +20,10 @@ interface Props {
 // Props の取得
 const props = defineProps<Props>();
 
-getHistory(props.childId).then((res) => {
-  console.log(res);
-});
+const tasks = ref([] as TaskBaseItem[]);
 
-// 仮置きデータ
-const paymentAmount = 500; // お手伝いの報酬
-const pastTasks = [
-  { name: '皿洗い', date: '2024-07-15', amount: 200 },
-  { name: '掃除', date: '2024-07-14', amount: 300 },
-  { name: '洗濯', date: '2024-07-13', amount: 250 },
-]
+getHistory(props.childId).then((res) => {
+  tasks.value = res.list;
+});
 
 </script>
