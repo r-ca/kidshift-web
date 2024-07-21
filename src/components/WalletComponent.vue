@@ -11,6 +11,7 @@ import HistoryComponent from 'components/HistoryComponent.vue';
 import { getHistory } from 'src/api/apiService';
 import { TaskBaseItem } from 'src/models/task';
 import { ref } from 'vue';
+import { HistoryBaseItem } from 'src/models/history';
 
 // Props の型定義
 interface Props {
@@ -20,7 +21,7 @@ interface Props {
 // Props の取得
 const props = defineProps<Props>();
 
-const tasks = ref([] as TaskBaseItem[]);
+const tasks = ref([] as HistoryBaseItem[]);
 
 getHistory(props.childId).then((res) => {
   tasks.value = res.list;
